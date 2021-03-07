@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
 import { UsersRepository } from "../repositories/UsersRepository";
 
-class UsersController {
+class SignUpController {
   async create(request: Request, response: Response) {
     const { 
       user_name,
@@ -17,12 +17,28 @@ class UsersController {
       user_name
     });
 
-    if(userNameAlreadyExists) {
+    const accountCodeAlreadyExists = await usersRepository.findOne({
+      account_code
+    })
+
+    if(userNameAlreadyExists && !accountCodeAlreadyExists) 
+    {
       response
       .status(400)
       .json({
         error: "user already exists"
       });
+    }
+    else if(accountCodeAlreadyExists && !userNameAlreadyExists)
+    {
+      response.status(400).json({
+        error: "account is already in use"
+      })
+    }
+    else if(accountCodeAlreadyExists && userNameAlreadyExists) {
+      response.status(400).json({
+        error: "user name already exists and account is already in use"
+      })
     }
     
     const userCreated = usersRepository.create({
@@ -39,4 +55,4 @@ class UsersController {
   }
 }
 
-export { UsersController };
+export { SignUpController };
