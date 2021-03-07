@@ -1,26 +1,17 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
-@Entity("users")
-class User {
+@Entity("add_people")
+class AddPeopleModel {
 
   @PrimaryColumn()
   readonly id: string;
 
   @Column()
-  user_name: string;
+  person_name: string;
 
   @Column()
-  first_name: string;
-
-  @Column()
-  last_name: string;
-
-  @Column()
-  account_code: number;
-
-  @Column()
-  password: string;
+  person_account_code: number;
 
   @CreateDateColumn()
   created_at: Date;
@@ -33,4 +24,4 @@ class User {
   }
 }
 
-export { User };
+export { AddPeopleModel };
