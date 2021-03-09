@@ -21,24 +21,13 @@ class SignUpController {
       account_code
     })
 
-    if(userNameAlreadyExists && !accountCodeAlreadyExists) 
+    if(userNameAlreadyExists || accountCodeAlreadyExists) 
     {
-      response
+     return response
       .status(400)
       .json({
-        error: "user already exists"
+        error: "user already  or account code exists"
       });
-    }
-    else if(accountCodeAlreadyExists && !userNameAlreadyExists)
-    {
-      response.status(400).json({
-        error: "account is already in use"
-      })
-    }
-    else if(accountCodeAlreadyExists && userNameAlreadyExists) {
-      response.status(400).json({
-        error: "user name already exists and account is already in use"
-      })
     }
     
     const userCreated = usersRepository.create({

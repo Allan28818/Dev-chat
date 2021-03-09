@@ -22,7 +22,7 @@ class LoginController {
     if(!userAlreadyExists) 
     {
       return response.status(401).json({
-        error: "User does not exists"
+        error: "User and another data does not exists"
       })
     }
 
