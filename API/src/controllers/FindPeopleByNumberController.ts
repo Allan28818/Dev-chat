@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
 import { UsersRepository } from "../repositories/UsersRepository";
+import * as yup from "yup";
 
 
 class FindPeopleByNumberController {
@@ -8,6 +9,18 @@ class FindPeopleByNumberController {
     const {
       account_code      
     } = request.body;
+
+    const schema = yup.object().shape({
+      account_code: yup.number().required()
+    });
+
+    try 
+    {
+      await schema.validate(request.body, { abortEarly: false });
+    } catch(err) 
+    {
+      return response.status(400).json({ error: err });
+    }
 
     const usersRepository = getCustomRepository(UsersRepository);
 

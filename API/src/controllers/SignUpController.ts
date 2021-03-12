@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
 import { UsersRepository } from "../repositories/UsersRepository";
+import * as yup from "yup";
 
 class SignUpController {
   async create(request: Request, response: Response) {
@@ -11,6 +12,23 @@ class SignUpController {
       account_code,
       password
     } = request.body;
+
+    const schema = yup.object().shape({
+      user_name: yup.string().required(),
+      first_name: yup.string().required(),
+      last_name: yup.string().required(),
+      account_code: yup.number() .required(),
+      password: yup.string().required()
+    });
+
+    try 
+    {
+      await schema.validate(request.body, { abortEarly: false });
+    } catch(err) 
+    {
+      return response.status(400).json({ error: err });
+    }
+
     const usersRepository = getCustomRepository(UsersRepository);
 
     const userNameAlreadyExists = await usersRepository.findOne({

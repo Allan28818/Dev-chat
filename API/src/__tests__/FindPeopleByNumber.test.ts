@@ -22,6 +22,7 @@ describe("find people by number", () => {
     });
 
     expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty("id");
   });
 
   it("Shouldn't be able to find a user by a nonexsitent code", async () => {

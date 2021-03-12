@@ -1,11 +1,15 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
+import { User } from "./User";
 
 @Entity("add_people")
 class AddPeopleModel {
 
   @PrimaryColumn()
   readonly id: string;
+
+  @Column()
+  my_id: string;
 
   @Column()
   person_name: string;
@@ -15,6 +19,7 @@ class AddPeopleModel {
 
   @CreateDateColumn()
   created_at: Date;
+
 
   constructor() {
     if(!this.id) 
