@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
 import { MessagesRepository } from "../repositories/MessagesRepository";
+import * as yup from "yup";
 
 
 class MessagesController {
@@ -9,6 +10,20 @@ class MessagesController {
       from,
       to
     } = request.params;
+
+    const schema = yup.object().shape({
+      from: yup.string().uuid().required(),
+      to: yup.string().uuid().required()
+    });
+
+    try 
+    {
+      await schema.validate(request.body, { abortEarly: false });
+    } catch(err) 
+    {
+      return response.status(400).json({ error: err });
+    }
+
 
     const { 
       content
@@ -44,6 +59,19 @@ class MessagesController {
 
   async store(request: Request, response: Response) {
     const { from, to } = request.params;
+
+    const schema = yup.object().shape({
+      from: yup.string().uuid().required(),
+      to: yup.string().uuid().required()
+    });
+
+    try 
+    {
+      await schema.validate(request.body, { abortEarly: false });
+    } catch(err) 
+    {
+      return response.status(400).json({ error: err });
+    }
 
     const messagesRepository = getCustomRepository(MessagesRepository);
 
