@@ -1,7 +1,5 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, PrimaryColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
-import { AddPeopleModel } from "./AddPeopleModel";
-import { Message } from "./Message";
 
 @Entity("users")
 class User {

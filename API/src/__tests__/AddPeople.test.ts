@@ -18,6 +18,7 @@ describe("add people", () => {
     }); 
 
     const peopleToAdd = await request(app).post("/add-people").send({
+      my_id: "yyyy",
       person_name: "User to add",
       person_account_code: 3100
     });
@@ -27,6 +28,7 @@ describe("add people", () => {
 
   it("Shoudn't be able to add a people to a contact list", async () => {
     const response = await request(app).post("/add-people").send({
+      my_id: "y7y8y9y10",
       person_name: "User to add",
       person_account_code: 1010101
     });

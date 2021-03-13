@@ -15,18 +15,17 @@ class LoginController {
 
      const schema = yup.object().shape({
       user_name: yup.string().required(),
-      account_code: yup.number() .required(),
+      account_code: yup.number().required(),
       password: yup.string().required()
     });
 
     try 
     {
-      await schema.validate(request.body, { abortEarly: false });
+     await schema.validate(request.body, { abortEarly: false });
     } catch(err) 
     {
-      return response.status(400).json({ error: err });
+      return response.status(400).json(err);
     }
-
 
     const usersRepository = getCustomRepository(UsersRepository);
     const userAlreadyExists = await usersRepository.findOne({
