@@ -1,4 +1,5 @@
 import request from "supertest";
+import { getConnection } from "typeorm";
 import { app } from "../app";
 import createConnection from "../database";
 
@@ -7,7 +8,13 @@ describe("message", () => {
   beforeAll(async () => {
     const connection = await createConnection();
     await connection.runMigrations();
-  })
+  });
+
+  afterAll(async () => {
+    const connection = getConnection();
+    await connection.dropDatabase();
+    await connection.close();
+  });
 
   it("Shouldn't be able to send a message to another user", async () => {
     const recipient = await request(app).post("/sign-up").send({

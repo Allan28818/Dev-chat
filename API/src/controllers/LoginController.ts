@@ -4,6 +4,7 @@ import { UsersRepository } from "../repositories/UsersRepository";
 import * as yup from "yup";
 
 import jwt from "jsonwebtoken";
+import { AppErrors } from "../errors/AppErrors";
 
 class LoginController {
   async find(request: Request, response: Response) {
@@ -24,7 +25,7 @@ class LoginController {
      await schema.validate(request.body, { abortEarly: false });
     } catch(err) 
     {
-      return response.status(400).json(err);
+      throw new AppErrors(err);
     }
 
     const usersRepository = getCustomRepository(UsersRepository);
@@ -36,9 +37,7 @@ class LoginController {
 
     if(!userAlreadyExists) 
     {
-      return response.status(401).json({
-        error: "User and another data does not exists"
-      })
+      throw new AppErrors("User and another data does not exists", 401);
     }
 
     return response.json({

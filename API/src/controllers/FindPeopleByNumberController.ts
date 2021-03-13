@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
 import { UsersRepository } from "../repositories/UsersRepository";
 import * as yup from "yup";
+import { AppErrors } from "../errors/AppErrors";
 
 class FindPeopleByNumberController {
   async findPeople(request: Request, response: Response) {
@@ -18,7 +19,7 @@ class FindPeopleByNumberController {
      await schema.validate(request.body, { abortEarly: false });
     } catch(err) 
     {
-      return response.status(400).json(err);
+      throw new AppErrors(err);
     }
 
     const usersRepository = getCustomRepository(UsersRepository);
@@ -28,9 +29,7 @@ class FindPeopleByNumberController {
     });
 
     if(!userFound) {
-      return response.status(400).json({
-        error: "Account code doesn't exists"
-      });
+      throw new AppErrors("User does exists");      
     }
 
     return response.json({
