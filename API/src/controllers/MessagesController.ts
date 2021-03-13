@@ -3,46 +3,31 @@ import { getCustomRepository } from "typeorm";
 import { MessagesRepository } from "../repositories/MessagesRepository";
 import * as yup from "yup";
 
-
 class MessagesController {
   async send(request: Request, response: Response) {
-    const {
-      from,
-      to
-    } = request.params;
+      const {
+        from,
+        to
+      } = request.params;
 
-    const schema = yup.object().shape({
-      from: yup.string().uuid().required(),
-      to: yup.string().uuid().required()
-    });
+      const { 
+        content
+      } = request.body;
 
-    try 
-    {
-      await schema.validate(request.body, { abortEarly: false });
-    } catch(err) 
-    {
-      return response.status(400).json({ error: err });
-    }
+      const messagesRepository = getCustomRepository(MessagesRepository);
 
+      const schema = yup.object().shape({
+        content: yup.string().required()
+      });
 
-    const { 
-      content
-     } = request.body;
-
-     const messagesRepository = getCustomRepository(MessagesRepository);
-
-     if(
-        content.length === 0 
-        || 
-        content === null 
-        ||
-        content === undefined) {
-        return response
-        .status(401)
-        .json({
-          error: "your message has no content"
-        })
+      try 
+      {
+        await schema.validate(request.body, { abortEarly: false });
+      } catch(err) 
+      {
+        return response.status(400).json(err);
       }
+
 
       const createdMessage = messagesRepository.create({
         from,
@@ -59,19 +44,6 @@ class MessagesController {
 
   async store(request: Request, response: Response) {
     const { from, to } = request.params;
-
-    const schema = yup.object().shape({
-      from: yup.string().uuid().required(),
-      to: yup.string().uuid().required()
-    });
-
-    try 
-    {
-      await schema.validate(request.body, { abortEarly: false });
-    } catch(err) 
-    {
-      return response.status(400).json({ error: err });
-    }
 
     const messagesRepository = getCustomRepository(MessagesRepository);
 

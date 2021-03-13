@@ -1,5 +1,5 @@
-import { query } from "express";
-import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
+
+import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class Messages1615148101572 implements MigrationInterface {
 

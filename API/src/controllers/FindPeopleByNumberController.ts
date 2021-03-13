@@ -3,7 +3,6 @@ import { getCustomRepository } from "typeorm";
 import { UsersRepository } from "../repositories/UsersRepository";
 import * as yup from "yup";
 
-
 class FindPeopleByNumberController {
   async findPeople(request: Request, response: Response) {
     const {
@@ -16,10 +15,10 @@ class FindPeopleByNumberController {
 
     try 
     {
-      await schema.validate(request.body, { abortEarly: false });
+     await schema.validate(request.body, { abortEarly: false });
     } catch(err) 
     {
-      return response.status(400).json({ error: err });
+      return response.status(400).json(err);
     }
 
     const usersRepository = getCustomRepository(UsersRepository);
