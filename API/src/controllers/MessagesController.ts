@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
 import { MessagesRepository } from "../repositories/MessagesRepository";
 import * as yup from "yup";
+import { AppErrors } from "../errors/AppErrors";
 
 class MessagesController {
   async send(request: Request, response: Response) {
@@ -25,7 +26,7 @@ class MessagesController {
         await schema.validate(request.body, { abortEarly: false });
       } catch(err) 
       {
-        return response.status(400).json(err);
+        throw new AppErrors(err);
       }
 
 
@@ -61,11 +62,9 @@ class MessagesController {
    
     if(!allAnotherMessages && !allMyMessages) 
     {
-      return response
-      .status(400)
-      .json({
-        error: "Any message in this conversation!"
-      })
+      return response.json({
+        message: "any message here"
+      });
     }
 
     return response.json({

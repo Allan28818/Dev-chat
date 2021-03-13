@@ -4,6 +4,7 @@ import { AddPeopleRepository } from "../repositories/AddPeopleRepository";
 import { UsersRepository } from "../repositories/UsersRepository";
 
 import * as yup from "yup";
+import { AppErrors } from "../errors/AppErrors";
 
 class AddPeopleController {
   async add(request: Request, response: Response) {
@@ -24,7 +25,7 @@ class AddPeopleController {
       await schema.validate(request.body, { abortEarly: false });
      } catch(err) 
      {
-       return response.status(400).json(err);
+       throw new AppErrors(err);
      }
 
      const usersRepository = getCustomRepository(UsersRepository);
@@ -36,9 +37,7 @@ class AddPeopleController {
      });
 
      if(!accountCodeAlreadyExists) {
-       return response.status(401).json({
-         error: "Account code doesn't exists"
-       });
+       throw new AppErrors("Account code doesn't exists", 401);
      }
 
      const createdPeople = addPeopleRepository.create({

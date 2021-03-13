@@ -1,4 +1,5 @@
 import request from "supertest";
+import { getConnection } from "typeorm";
 import { app } from "../app";
 import createConnection from "../database";
 
@@ -6,6 +7,12 @@ describe("add people", () => {
   beforeAll(async () => {
     const connection = await createConnection();
     await connection.runMigrations();
+  });
+
+  afterAll(async () => {
+    const connection = getConnection();
+    await connection.dropDatabase();
+    await connection.close();
   });
 
   it("Should be able to add a people to a contact list", async () => {
@@ -30,7 +37,7 @@ describe("add people", () => {
     const response = await request(app).post("/add-people").send({
       my_id: "y7y8y9y10",
       person_name: "User to add",
-      person_account_code: 1010101
+      person_account_code: 100200300
     });
 
     expect(response.status).toBe(401);
