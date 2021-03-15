@@ -1,6 +1,6 @@
 import React from "react";
 
-const PageLanding = () => {
+const Contacts = () => {
   return(
     <>
       <h1>Welcome to Dev Chat</h1>
@@ -8,4 +8,4 @@ const PageLanding = () => {
   )
 }
 
-export default PageLanding;
+export default Contacts;
