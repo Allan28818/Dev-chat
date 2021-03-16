@@ -4,18 +4,10 @@ import { Link } from "react-router-dom";
 const ErrorOcurred = () => {
   return (
     <>
-      <h1>An error ocurred!</h1>
+      <h1>Sua rota está incompleta</h1>
       <p>
-        Get 
-        <Link to = "/login">
-          {" "}logged
-        </Link> or make 
-        <Link to = "/sign-up">
-        {" "}sign up
-        </Link>
+        Você voltará para <Link to = "/login">{" "}home</Link> em alguns segundos...
       </p>
-
-
     </>
   );
 }

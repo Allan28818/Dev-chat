@@ -17,6 +17,7 @@ const Home = () => {
       <a 
       href = "https://github.com/Allan28818/Dev-chat"
       target = "_blank"
+      rel = "noreferrer"
       >
       GitHub
       </a>
