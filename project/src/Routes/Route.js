@@ -10,6 +10,8 @@ import SignUp from "../views/SignUp";
 import PrivateRoute from "../components/PrivateRoute";
 import UserIsNotLogged from "../views/RouteErrors/UserIsNotLogged";
 import Home from "../views/Home";
+import PublicRoute from "../components/PublicRoutes";
+import IndividualChat from "../views/IndividualChat";
 
 
 const Routes = () => {
@@ -21,11 +23,14 @@ const Routes = () => {
           <PrivateRoute exact path = "/home/:user" component = { Contacts }/>
           <PrivateRoute exact path = "/home" component = { ErrorOcurred }/>
           <PrivateRoute path = "/add-an-user" component = { AddPeople } />
+          <PrivateRoute path = "/chat/:user/:recipient_account_code" 
+          component = { IndividualChat }/>
+          <PrivateRoute path = "/chat" component = { ErrorOcurred } />
 
-          <Route path = "/login" component = { Login } />
-          <Route path = "/sign-up" component = { SignUp } />
+          <PublicRoute path = "/login" component = { Login } />
+          <PublicRoute path = "/sign-up" component = { SignUp } />
           
-          <Route path = "/user-is-not-logged" component = { UserIsNotLogged } />
+          <PublicRoute path = "/user-is-not-logged" component = { UserIsNotLogged } />
 
           <Route component = { NotFound } />
         </Switch>
