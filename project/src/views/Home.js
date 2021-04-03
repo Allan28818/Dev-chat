@@ -1,28 +1,35 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Navbar from "../components/Nav/Navbar";
+
+import "../styles/web/webHome.css";
+import "../styles/mobile/mobileHome.css";
 
 const Home = () => {
-  const userData = JSON.parse(localStorage.getItem("response"));
   const clearStorage = () => {
     alert("Você não está mais logado(a)");
     localStorage.clear();
     window.location.reload();
   }
-  return(
+
+
+  document.title = "DevChat | Home";
+
+  return (
     <>
-      <h1>Home</h1>
-      <p>Converse com seus amigos e compartilhe todas as suas expriências!</p>
-      <Link to = {`/home/${userData.token}`} >Contatos</Link>
-      <Link to = "/add-an-user">Adicionar contatos</Link>
-      <a 
-      href = "https://github.com/Allan28818/Dev-chat"
-      target = "_blank"
-      rel = "noreferrer"
+      <Navbar />
+      <h1
+        className = "home-title"
       >
-      GitHub
-      </a>
+        Dev chat
+      </h1>
+      <p
+        className = "home-description">
+        Converse com seus amigos e compartilhe todas as suas expriências!
+      </p>
+
       <button
-      onClick = { clearStorage }
+        className = "logoff"
+        onClick = { clearStorage }
       >Log-off</button>
     </>
   );
