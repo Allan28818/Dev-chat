@@ -1,0 +1,19 @@
+@media(min-width: 280px) {
+  .error-title {
+    font-size: 25px;
+    font-weight: bolder;
+    text-align: center;
+    color: #fff;
+  }
+
+  .error-description {
+    color: #fff;
+    text-align: center;
+    font-size: 20px;    
+    margin: 20px;
+  }
+
+  .error-description > a {
+    color: #00ffff;
+  }
+}

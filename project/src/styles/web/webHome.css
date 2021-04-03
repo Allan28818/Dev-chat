@@ -1,0 +1,234 @@
+@media(min-width: 1200px) {
+  .home-title {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+    color: #00ff6a;
+    cursor: default;
+    transition: all .7s;
+  }
+
+  .home-title:hover {
+    color: #06642d;
+  }
+  
+  .home-description {
+    font-size: 25px;
+    text-align: center;
+    color: #fff;
+    cursor: default;
+    transition: all .2s;
+  }
+  
+  .home-description:hover {
+    letter-spacing: 1px;
+  }
+
+  .logoff {
+    width: 500px;
+    height: 75px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00ff6a;
+    color: #000000b6;
+    font-size: 35px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .8s ease;
+    animation: logoff-animation 60s infinite ease;
+    margin: auto;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  .logoff:hover {
+    letter-spacing: 3px;
+    box-shadow: 0px 0px 25px 0px rgba(255, 255, 255, 0.301);
+  }
+  
+  .logoff:active {
+    background: #ff00009f;
+    color: #fff;
+    animation: none;
+    transition: .3s;
+  }
+  
+  @keyframes logoff-animation {
+    0%{
+      color: #000000b6;
+      background: #00ff6a;
+    }
+  
+    10%{
+      color: #000000d5;
+      background: #02ec63;
+    }
+  
+    15%{
+      color: #000000ea;
+      background: #02db5c;
+    }
+  
+    17%{
+      color: #050404f1;
+      background: #01cc56;
+    }
+    
+    20%{
+      color: #050404;
+      background: #01b44c;
+    }
+  
+    25%{
+      color: #080505;
+      background: #01a545;
+    }
+  
+    27%{
+      color: #050303;
+      background: #028b3b;
+    }
+    
+    28%{
+      color: #070404;
+      background: #017431;
+    }
+    
+    29%{
+      color: #070303;
+      background: #01632a;
+    }
+    
+    30%{
+      color: #050202;
+      background: #004e21;
+    }
+    
+    32%{
+      color: #0e0404;
+      background: #003f1a;
+    }
+  
+    35%{
+      color: #180606;
+      background: #002710;
+    }
+    
+    37%{
+      color: #220606;
+      background: #001409;
+    }
+    
+    40%{
+      color: #310606;
+      background: #000000;
+    }
+  
+    42%{
+      color: #420505;
+      background: #000000;
+    }
+    
+    45%{
+      color: #530202;
+      background: #000000;
+    }
+  
+    47%{
+      color: #940000;
+      background: #000000;
+    }
+    
+    50%{
+      color: #bd0000;
+      background: #000000;
+    }
+  
+    52% {
+      color: #940000;
+      background: #000000;
+    }
+  
+    55% {
+      color: #530202;
+      background: #000000;
+    }
+  
+    57% {
+      color: #420505;
+      background: #000000;
+    }
+  
+    60%{
+      color: #310606;
+      background: #000000;
+    }
+  
+    62% {
+      color: #220606;
+      background: #001409;
+    }
+  
+    65% {
+      color: #180606;
+      background: #002710;
+    }
+  
+    67% {
+      color: #0e0404;
+      background: #003f1a;
+    }
+  
+    70%{
+      color: #050202;
+      background: #004e21;
+    }
+  
+    71% {
+      color: #070303;
+      background: #01632a;
+    }
+  
+    72% {
+      color: #070404;
+      background: #017431;
+    }
+  
+    73% {
+      color: #050303;
+      background: #028b3b;
+    }
+  
+    75% {
+      color: #080505;
+      background: #01a545;
+    }
+  
+    80%{
+      color: #050404;
+      background: #01b44c;
+    }
+  
+    82% {
+      color: #050404f1;
+      background: #01cc56;
+    }
+  
+    85% {
+      color: #000000ea;
+      background: #02db5c;
+    }
+  
+    90%{
+      color: #000000d5;
+      background: #02ec63;
+    }
+  
+    100%{
+      color: #000000b6;
+      background: #00ff6a;
+    }
+  }
+}

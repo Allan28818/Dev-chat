@@ -20,12 +20,13 @@ const Routes = () => {
       <BrowserRouter>
         <Switch>
           <PrivateRoute exact path = "/" component = { Home }/>
-          <PrivateRoute exact path = "/home/:user" component = { Contacts }/>
+          <PrivateRoute exact path = "/contacts/:user" component = { Contacts }/>
           <PrivateRoute exact path = "/home" component = { ErrorOcurred }/>
           <PrivateRoute path = "/add-an-user" component = { AddPeople } />
           <PrivateRoute path = "/chat/:user/:recipient_account_code" 
           component = { IndividualChat }/>
           <PrivateRoute path = "/chat" component = { ErrorOcurred } />
+          <PrivateRoute path = "/contacts" component = { ErrorOcurred } />
 
           <PublicRoute path = "/login" component = { Login } />
           <PublicRoute path = "/sign-up" component = { SignUp } />

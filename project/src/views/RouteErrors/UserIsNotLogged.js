@@ -1,6 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router";
 
+import "../../styles/mobile/mobileErrorMessages.css";
+import "../../styles/web/webErrorMessages.css";
 
 const UserIsNotLogged = () => {
   const history = useHistory();
@@ -17,19 +19,27 @@ const UserIsNotLogged = () => {
     messages.title = "Você está logado(a) 🤔"
     messages.description = "Você está logado(a) você retornará para home em 5 segundos";
     setTimeout(function() {
-      history.push(`/home/${userData.token}`)
+      history.push(`/chat/${userData.token}`)
     }, 5000);
+    
+    document.title = "Usuário logado";
   }
   else {
     setTimeout(function() {
       history.push("/login")
     }, 5000);
+
+    document.title = "Logoff!";
   }
   
   return(
   <>
-    <h1>{ messages.title }</h1>
-    <p>{ messages.description }</p>
+    <h1
+    className = "error-title"
+    >{ messages.title }</h1>
+    <p
+    className = "error-description"
+    >{ messages.description }</p>
   </>)
 };
 
