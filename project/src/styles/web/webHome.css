@@ -1,11 +1,7 @@
 @media(min-width: 1200px) {
   .home-title {
-    font-size: 40px;
-    text-align: center;
-    margin-top: 20px;
-    color: #00ff6a;
-    cursor: default;
-    transition: all .7s;
+    width: 400px;
+    height: 308.751px;
   }
 
   .home-title:hover {

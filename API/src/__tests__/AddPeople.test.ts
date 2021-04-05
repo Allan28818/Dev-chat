@@ -41,5 +41,13 @@ describe("add people", () => {
     });
 
     expect(response.status).toBe(401);
-  })
+  });
+
+  it("Should be able to find all users in the list", async () => {
+    const response = await request(app).post("/list-the-users").send({
+      my_id: "y7y8y9y10"
+    });
+
+    expect(response.status).toBe(200);
+  });
 });

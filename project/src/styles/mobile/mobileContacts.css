@@ -786,7 +786,7 @@
   }
 
   .no-contacts-text {
-    font-size: 35px;
+    font-size: 25px;
     color: #fff;
     transition: .5s ease;
     cursor: default;
@@ -1058,7 +1058,7 @@
   }
 
   .no-contacts-text {
-    font-size: 55px;
+    font-size: 45px;
     color: #fff;
     transition: .5s ease;
     cursor: default;

@@ -63,6 +63,7 @@ const Login = () => {
       validationSchema = { schema }
       >
         <Form
+        autoComplete="off"
         className = "login-form">
             <label 
             htmlFor = "user_name" 
@@ -74,7 +75,7 @@ const Login = () => {
             name = "user_name"
             className = "login-input"
             autoComplete = "off"  
-            spellCheck="false"          
+            spellCheck="false"                 
             value = { undefined }            
             />
             <ErrorMessage 

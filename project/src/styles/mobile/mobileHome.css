@@ -1,11 +1,10 @@
 @media(min-width: 280px) {
-  .home-title {
-    font-size: 50px;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    color: #00ff6a;
-    cursor: default;
+  .home-logo {
+   width: 200px;
+   height: 154.375px;
+   display: flex;
+   margin: auto;
+   border-radius: 50px;
   }
   
   .home-description {
@@ -55,13 +54,9 @@
 
 
 @media(min-width: 320px) {
-  .home-title {
-    font-size: 50px;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 40px;
-    color: #00ff6a;
-    cursor: default;
+  .home-logo {
+    width: 250px;
+    height: 192.969px;
   }
   
   .home-description {
@@ -113,13 +108,9 @@
 
 
 @media(min-width: 360px) {
-  .home-title {
-    font-size: 60px;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 40px;
-    color: #00ff6a;
-    cursor: default;
+  .home-logo {
+    width: 320px;
+    height: 247.001px;
   }
   
   .home-description {
@@ -170,13 +161,9 @@
 
 
 @media(min-width: 411px) {
-  .home-title {
-    font-size: 35px;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    color: #00ff6a;
-    cursor: default;
+  .home-logo {
+    width: 350px;
+    height: 270.157px;
   }
   
   .home-description {
@@ -224,13 +211,9 @@
 
 
 @media(min-width: 540px) {
-  .home-title {
-    font-size: 45px;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    color: #00ff6a;
-    cursor: default;
+  .home-logo {
+    width: 450px;
+    height: 347.345px;
   }
   
   .home-description {
@@ -278,13 +261,9 @@
 
 
 @media(min-width: 540px) {
-  .home-title {
-    font-size: 65px;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    color: #00ff6a;
-    cursor: default;
+  .home-logo {
+    width: 600px;
+    height: 463.127px;
   }
   
   .home-description {
@@ -327,13 +306,9 @@
 
 
 @media(min-width: 1024px) {
-  .home-title {
-    font-size: 80px;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 30px;
-    color: #00ff6a;
-    cursor: default;
+  .home-logo {
+    width: 600px;
+    height: 463.127px;
   }
   
   .home-description {

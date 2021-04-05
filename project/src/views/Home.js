@@ -1,8 +1,9 @@
 import React from "react";
 import Navbar from "../components/Nav/Navbar";
 
-import "../styles/web/webHome.css";
 import "../styles/mobile/mobileHome.css";
+import "../styles/web/webHome.css";
+import Logo from "../images/principal-logo.png";
 
 const Home = () => {
   const clearStorage = () => {
@@ -17,11 +18,12 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <h1
-        className = "home-title"
-      >
-        Dev chat
-      </h1>
+      
+      <img 
+      src = { Logo }
+      alt = "DevChat"
+      className = "home-logo" />
+      
       <p
         className = "home-description">
         Converse com seus amigos e compartilhe todas as suas expriências!

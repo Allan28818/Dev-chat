@@ -50,6 +50,33 @@ class AddPeopleController {
 
      return response.status(201).json(createdPeople);
   }
+
+  async store(request: Request, response: Response) {
+    const { my_id } = request.body;
+
+    const schema = yup.object().shape({
+      my_id: yup.string().required()
+    });
+
+    try 
+    {
+      await schema.validate(request.body, { abortEarly: false });      
+    } 
+    catch(err) 
+    {
+      throw new AppErrors(err);
+    }
+
+    const addPeopleRepository = getCustomRepository(AddPeopleRepository);
+    const allUsersInTheList = await addPeopleRepository.find({ my_id });
+
+    if(!allUsersInTheList) 
+    {
+      throw new AppErrors("Owner list does not exists");
+    }
+
+    return response.json(allUsersInTheList);
+  }
 }
 
 export { AddPeopleController };
