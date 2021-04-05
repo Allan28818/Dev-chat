@@ -17,10 +17,14 @@ const router = Router();
 
 router.post("/sign-up", signUpController.create);
 router.post("/login", loginController.find);
+
 router.post("/add-people", addPeopleController.add);
 router.post("/find-user", findPeopleByNumberController.findPeople);
+router.post("/list-the-users", addPeopleController.store);
+
 router.post("/messages/:from/:to", messagesController.send);
 router.get("/messages/:from/:to", messagesController.store);
+
 
 
 export { router };

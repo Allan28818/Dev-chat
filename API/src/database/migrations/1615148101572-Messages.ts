@@ -24,11 +24,7 @@ export class Messages1615148101572 implements MigrationInterface {
             {
               name: "content",
               type: "varchar"
-            },
-            {
-              name: "user_id",
-              type: "uuid"            
-            },
+            },           
             {
               name: "created_at",
               type: "timestamp",

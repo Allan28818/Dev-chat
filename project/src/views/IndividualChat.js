@@ -127,7 +127,7 @@ class IndividualChat extends Component {
         <Link 
         className = "return-to-contacts"
         to = {`/contacts/${userData.token}`}>
-          <i class="fas fa-arrow-left"></i>  
+          <i className="fas fa-arrow-left"></i>  
         </Link>        
         
         {
@@ -174,8 +174,8 @@ class IndividualChat extends Component {
           <button
           className = "individual-chat-sender"
           type = "submit"
-          onClick = { this.handleSubmit }>
-            <i class="far fa-paper-plane"></i> 
+          onClick = { () => this.handleSubmit }>
+            <i className="far fa-paper-plane"></i> 
           </button>
         </form>
   

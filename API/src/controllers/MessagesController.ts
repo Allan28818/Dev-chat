@@ -29,11 +29,10 @@ class MessagesController {
         throw new AppErrors(err);
       }
 
-
       const createdMessage = messagesRepository.create({
         from,
-        to,        
-        content
+        to,                    
+        content        
       });
 
       await messagesRepository.save(createdMessage);

@@ -8,12 +8,13 @@ const Ul = styled.ul`
     flex-flow: row nowrap;
 
     li {
-      padding: 18px 10px;
+      padding: 18px 10px;      
     }
 
     li > a {
       color: #fff;
-      text-decoration: none;
+      text-decoration: none; 
+      font-size: 20px;     
     }
 
     @media (max-width: 768px) {      
@@ -31,6 +32,7 @@ const Ul = styled.ul`
 
       li > a {
         color: #fff;
+        font-size: 20px;
       }
     }
 `;

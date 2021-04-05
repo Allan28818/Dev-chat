@@ -41,6 +41,7 @@ class LoginController {
     }
 
     return response.json({
+      id: userAlreadyExists.id,
       user_name,
       first_name: userAlreadyExists.first_name,
       last_name: userAlreadyExists.last_name,
